@@ -29,6 +29,7 @@ if "page" not in st.session_state:
 @st.cache_data
 def load_preprocess_data():
     df = pd.read_csv("Fine-Tuned_Road_Accident_Dataset.csv")
+    df = df.sample(n=30000, random_state=42)
 
     cat_cols = ['Road Condition', 'Weather Conditions', 'Urban/Rural',
                 'Driver Age Group', 'Driver Gender', 'Vehicle Condition', 'Accident Severity']
